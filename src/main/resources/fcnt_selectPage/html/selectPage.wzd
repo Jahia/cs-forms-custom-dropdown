@@ -1,0 +1,17 @@
+package fcnt_selectPage.html
+
+select {
+    label "Select Page"
+    template "<ff-select-page></ff-select-page>"
+    wizard "<ff-select-page view-type='designView'></ff-select-page>"
+    supportedValidationTypes "required"
+    supportedLogicTypes "valid", "select"
+    choiceField "options"
+    properties {
+        inputsize "input-md"
+    }
+    propertiesI18n {
+        helptext "Help"
+        placeholder "Select a page"
+    }
+}

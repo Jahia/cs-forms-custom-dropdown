@@ -1,0 +1,17 @@
+package fcnt_selectSite.html
+
+select {
+    label "Select Site"
+    template "<ff-select-site></ff-select-site>"
+    wizard "<ff-select-site view-type='designView'></ff-select-site>"
+    supportedValidationTypes "required"
+    supportedLogicTypes "valid", "select"
+    choiceField "options"
+    properties {
+        inputsize "input-md"
+    }
+    propertiesI18n {
+        helptext "Help"
+        placeholder "Select a site"
+    }
+}

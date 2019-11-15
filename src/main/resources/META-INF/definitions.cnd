@@ -1,0 +1,8 @@
+<jnt = 'http://www.jahia.org/jahia/nt/1.0'>
+<jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<fcmix = 'http://www.jahia.org/jahia/fc/mix/1.0'>
+<fcnt = 'http://www.jahia.org/jahia/fc/nt/1.0'>
+
+[fcnt:selectSite] > jnt:content, fcmix:definition, mix:title, jmix:droppableContent, jmix:hiddenType
+
+[fcnt:selectPage] > jnt:content, fcmix:definition, mix:title, jmix:droppableContent, jmix:hiddenType
