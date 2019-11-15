@@ -1,15 +1,18 @@
 <%@ page contentType="text/javascript" %>
     <%@ taglib prefix="formfactory" uri="http://www.jahia.org/formfactory/functions" %>
+    <%@ taglib prefix="jcr" uri="http://www.jahia.org/tags/jcr"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions" %>
     <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 
     angular
         .module('formFactory')
-        .directive('ffSelectBasic', ['$log', 'ffTemplateResolver', function ($log, ffTemplateResolver) {
+        .directive('ffSelectPage', ['$log','$http', 'ffTemplateResolver', function ($log,$http, ffTemplateResolver) {
             var directive = {
                 restrict: 'E',
                 require: ['^ffController'],
                 templateUrl: function(el, attrs) {
-                    return ffTemplateResolver.resolveTemplatePath('${formfactory:addFormFactoryModulePath('/form-factory-definitions/select-basic', renderContext)}', attrs.viewType);
+                    return ffTemplateResolver.resolveTemplatePath('${formfactory:addFormFactoryModulePath('/form-factory-definitions/select-page', renderContext)}', attrs.viewType);
                 },
                 link: linkFunc
             };

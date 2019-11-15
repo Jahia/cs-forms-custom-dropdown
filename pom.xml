@@ -62,6 +62,14 @@
     <connection>scm:dummy:uri</connection>
     <developerConnection>scm:dummy:uri</developerConnection>
   </scm>
+  <dependencies>
+  <dependency>
+    <groupId>org.jahia.modules</groupId>
+    <artifactId>form-factory-core</artifactId>
+    <version>2.3.0</version>
+    <scope>provided</scope>
+  </dependency>
+  </dependencies>
   <properties>
     <jahia-depends>default,form-factory-core</jahia-depends>
   </properties>
@@ -77,6 +85,31 @@
       <id>jahia-public</id>
       <name>Jahia Public Repository</name>
       <url>https://devtools.jahia.com/nexus/content/groups/public</url>
+    </repository>
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>form-factory</id>
+      <name>Form Factory Repository</name>
+      <url>https://devtools.jahia.com/nexus/content/repositories/form-factory-releases</url>
+    </repository>
+    <repository>
+      <releases>
+        <enabled>false</enabled>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+      <id>form-factory-snapshots</id>
+      <name>Form Factory Repository</name>
+      <url>https://devtools.jahia.com/nexus/content/repositories/form-factory-snapshots</url>
     </repository>
   </repositories>
   <build>
