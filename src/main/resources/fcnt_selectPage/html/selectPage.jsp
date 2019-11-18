@@ -14,12 +14,12 @@
                 ng-model="input.value"
                 ng-required="isRequired()"
                 ng-disabled="readOnly"
-                ng-options="site as site.site_name for site in jira_datas track by site.site_key"
+                ng-options="page as page.page_name for page in pageList track by page.page_key"
+                ng-disabled="readOnly"
                 ff-validations
                 ff-logic
                 ff-focus-tracker="{{input.name}}">
             <option ng-if="input.value == '' || input.value === null" value="">{{input.placeholder}}</option>
-            <option ng-repeat="option in input.options | filter: 'true' : null : visible" value="{{option.key}}">{{option.value}}</option>
 
         </select>
         <span class="help-block"

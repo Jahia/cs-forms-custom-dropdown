@@ -20,25 +20,35 @@
             return directive;
 
             function linkFunc(scope, el, attr, ctrl) {
+                var site_key;
                 var formController = ctrl[0];
-                scope.input.options = angular.fromJson(scope.input.options);
-                //set visible property if it hasnt been set yet.
-                for (var i in scope.input.options) {
-                    if (scope.input.options[i].visible == null) {
-                        scope.input.options[i].visible = true;
-                    }
-                }
-                if (!formController.isLiveMode()) {
-                    scope.$watch(function() {return scope.input.value; }, function(newValue) {
-                        if (newValue instanceof Array) {
-                            if (newValue.length > 0) {
-                                scope.input.value = newValue[0];
-                            }
-                            else {
-                                scope.input.value = null;
-                            }
+                if(formController.getPreviousStepInputValue('select_site')){
+                    site_key = formController.getPreviousStepInputValue('select_site').value.site_key;
+                    getPages(scope,site_key);
+                }else{
+                    scope.$watch(function() {
+                        return formController.getCurrentStepInput('select_site').value;
+                    }, function(a, b) {
+                        //Updated checkbox status when input.value is changed from key value directive
+                        site = formController.getCurrentStepInput('select_site').value;
+                        if (site!=null && site.site_key!=null && site.site_key.length>1){
+                            getPages(scope,site.site_key);
                         }
                     });
                 }
             }
+
+            function getPages(scope,sitekey){
+                $http({
+                    url: "<c:url value='${url.base}${currentNode.path}'/>.getPages.do",
+                    method: "POST",
+                    params: {'site_key': sitekey },
+                    headers: {'Content-Type': 'application/json'}
+                }).then(function(response) {
+                    scope.pageList = response.data.data;
+                }, function(error) {
+                    console.log(error);
+                });
+            }
+
         }]);

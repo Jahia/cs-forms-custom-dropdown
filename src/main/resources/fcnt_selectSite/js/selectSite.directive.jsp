@@ -27,7 +27,7 @@
                     method: "POST",
                     headers: {'Content-Type': 'application/json'}
                 }).then(function(response) {
-                    scope.jira_datas = response.data.data;
+                    scope.sitesList = response.data.data;
                 }, function(error) {
                     console.log(error);
                 });
