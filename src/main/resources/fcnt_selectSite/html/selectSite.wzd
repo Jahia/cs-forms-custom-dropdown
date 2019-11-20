@@ -6,7 +6,6 @@ select {
     wizard "<ff-select-site view-type='designView'></ff-select-site>"
     supportedValidationTypes "required"
     supportedLogicTypes "valid", "select"
-    choiceField "options"
     properties {
         inputsize "input-md"
     }
