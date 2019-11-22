@@ -23,7 +23,7 @@
                 var site_key;
                 var formController = ctrl[0];
                 if(formController.getPreviousStepInputValue('select_site')){
-                    site_key = formController.getPreviousStepInputValue('select_site').value.site_key;
+                    site_key = formController.getPreviousStepInputValue('select_site').value.name;
                     getPages(scope,site_key);
                 }else{
                     scope.$watch(function() {
@@ -31,8 +31,8 @@
                     }, function(a, b) {
                         //Updated checkbox status when input.value is changed from key value directive
                         site = formController.getCurrentStepInput('select_site').value;
-                        if (site!=null && site.site_key!=null && site.site_key.length>1){
-                            getPages(scope,site.site_key);
+                        if (site!=null && site.name!=null && site.name.length>1){
+                            getPages(scope,site.name);
                         }
                     });
                 }

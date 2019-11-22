@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
     <modules jcr:primaryType="jnt:modules">
-        <cs-forms-custom-dropdown j:dependencies="default form-factory-core"
+        <cs-forms-custom-dropdown j:dependencies="default form-factory-core graphql-dxm-provider"
                                 j:modulePriority="0"
                                 j:moduleType="module"
                                 j:title="cs-forms-custom-dropdown"
@@ -18,17 +18,13 @@
                              jcr:primaryType="jnt:folder">
                                 <fcnt_selectPage jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
                                       jcr:primaryType="jnt:nodeTypeFolder">
-                                    <html jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
+                                    <html jcr:mixinTypes="jmix:hasExternalProviderExtension"
                               jcr:primaryType="jnt:templateTypeFolder"/>
                                 </fcnt_selectPage>
                                 <fcnt_selectSite jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
                                       jcr:primaryType="jnt:nodeTypeFolder">
                                     <html jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
-                              jcr:primaryType="jnt:templateTypeFolder">
-                                        <selectSite-1.jsp jcr:mixinTypes="jmix:sourceControl jmix:sourceControl"
-                                             jcr:primaryType="jnt:viewFile"
-                                             scmStatus="added"/>
-                                    </html>
+                              jcr:primaryType="jnt:templateTypeFolder"/>
                                 </fcnt_selectSite>
                             </resources>
                         </main>
@@ -40,7 +36,58 @@
                 <contents jcr:primaryType="jnt:contentFolder"/>
                 <templates j:rootTemplatePath="/base" jcr:primaryType="jnt:templatesFolder">
                     <files jcr:primaryType="jnt:folder"/>
-                    <contents jcr:primaryType="jnt:contentFolder"/>
+                    <contents jcr:primaryType="jnt:contentFolder">
+                        <form-factory-definitions jcr:primaryType="jnt:contentFolder">
+                            <select-site jcr:mixinTypes="fcmix:extendedDefinition fcmix:layoutUUID"
+                               jcr:primaryType="fcnt:selectSite"
+                               layoutUUID="fakeUUID"
+                               supportedLogicTypes="select valid"
+                               supportedValidationTypes="required"
+                               tab="select"
+                               template="&lt;ff-select-site&gt;&lt;/ff-select-site&gt;"
+                               wizard="&lt;ff-select-site view-type='designView'&gt;&lt;/ff-select-site&gt;">
+                                <j:translation_en jcr:language="en"
+                                       jcr:mixinTypes="mix:title"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="Select Site"/>
+                                <inputsize jcr:primaryType="fcnt:definitionOptions" jsonValue="input-md"/>
+                                <helptext jcr:primaryType="fcnt:definitionOptionsTranslatable">
+                                    <j:translation_en jcr:language="en"
+                                          jcr:primaryType="jnt:translation"
+                                          jsonValue="Help"/>
+                                </helptext>
+                                <placeholder jcr:primaryType="fcnt:definitionOptionsTranslatable">
+                                    <j:translation_en jcr:language="en"
+                                          jcr:primaryType="jnt:translation"
+                                          jsonValue="Select a site"/>
+                                </placeholder>
+                            </select-site>
+                            <select-page jcr:mixinTypes="fcmix:extendedDefinition fcmix:layoutUUID"
+                               jcr:primaryType="fcnt:selectPage"
+                               layoutUUID="fakeUUID"
+                               supportedLogicTypes="select valid"
+                               supportedValidationTypes="required"
+                               tab="select"
+                               template="&lt;ff-select-page&gt;&lt;/ff-select-page&gt;"
+                               wizard="&lt;ff-select-page view-type='designView'&gt;&lt;/ff-select-page&gt;">
+                                <j:translation_en jcr:language="en"
+                                       jcr:mixinTypes="mix:title"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="Select Page"/>
+                                <inputsize jcr:primaryType="fcnt:definitionOptions" jsonValue="input-md"/>
+                                <helptext jcr:primaryType="fcnt:definitionOptionsTranslatable">
+                                    <j:translation_en jcr:language="en"
+                                          jcr:primaryType="jnt:translation"
+                                          jsonValue="Help"/>
+                                </helptext>
+                                <placeholder jcr:primaryType="fcnt:definitionOptionsTranslatable">
+                                    <j:translation_en jcr:language="en"
+                                          jcr:primaryType="jnt:translation"
+                                          jsonValue="Select a page"/>
+                                </placeholder>
+                            </select-page>
+                        </form-factory-definitions>
+                    </contents>
                 </templates>
                 
             </cs-forms-custom-dropdown>

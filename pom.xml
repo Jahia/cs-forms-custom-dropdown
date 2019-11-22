@@ -62,17 +62,17 @@
     <connection>scm:dummy:uri</connection>
     <developerConnection>scm:dummy:uri</developerConnection>
   </scm>
-  <dependencies>
-  <dependency>
-    <groupId>org.jahia.modules</groupId>
-    <artifactId>form-factory-core</artifactId>
-    <version>2.3.0</version>
-    <scope>provided</scope>
-  </dependency>
-  </dependencies>
   <properties>
-    <jahia-depends>default,form-factory-core</jahia-depends>
+    <jahia-depends>default,form-factory-core,graphql-dxm-provider</jahia-depends>
   </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.jahia.modules</groupId>
+      <artifactId>form-factory-core</artifactId>
+      <version>2.3.0</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
   <repositories>
     <repository>
       <releases>

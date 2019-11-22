@@ -19,17 +19,38 @@
 
             return directive;
 
-
             function linkFunc(scope, el, attr, ctrl) {
 
+            getSitesQuery = "{ \n" +
+                    "  jcr(workspace: LIVE) {\n" +
+                    "   nodeByPath(path: \"/sites/\") {\n" +
+                    "     children (typesFilter: {types: [\"jnt:virtualsite\"]}) {\n" +
+                    "      nodes{\n" +
+                    "        name\n" +
+                    "        displayName\n" +
+                    "      }\n" +
+                    "    }\n" +
+                    "   }\n" +
+                    " }\n" +
+                    "}"
                 $http({
-                    url: "<c:url value='${url.base}${currentNode.path}'/>.getSites.do",
+                    url: "/modules/graphql",
                     method: "POST",
-                    headers: {'Content-Type': 'application/json'}
+                    data:JSON.stringify({
+                            query: getSitesQuery
+                    }
+                    ),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
                 }).then(function(response) {
-                    scope.sitesList = response.data.data;
+                    scope.sitesList = response.data.data.jcr.nodeByPath.children.nodes;
                 }, function(error) {
                     console.log(error);
                 });
             }
+
+
+
         }]);

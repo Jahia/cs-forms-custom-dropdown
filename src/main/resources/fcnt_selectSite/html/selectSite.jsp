@@ -13,7 +13,7 @@
                 name="{{input.name}}"
                 ng-model="input.value"
                 ng-required="isRequired()"
-                ng-options="site as site.site_name for site in sitesList track by site.site_key"
+                ng-options="site as site.displayName for site in sitesList track by site.name"
                 ng-disabled="readOnly"
                 ff-validations
                 ff-logic
